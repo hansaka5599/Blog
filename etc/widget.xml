@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Netstarter Pty Ltd.
+ *
+ * @category    CameraHouse
+ * @package     CameraHouse_Blog
+ * @author      Netstarter Team <contact@netstarter.com>
+ * @copyright   Copyright (c) 2016 Netstarter Pty Ltd. (http://www.netstarter.com.au)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="camera-house-blog" class="CameraHouse\Blog\Block\Widget\Blog" is_email_compatible="true" placeholder_image="CameraHouse_Blog::images/blog.png">
+        <label translate="true">Blog Feeds</label>
+        <description translate="true">Blog feed updates</description>
+        <parameters>
+            <parameter name="block_title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Title to Display</label>
+                <value><![CDATA[From the camera blog]]></value>
+            </parameter>
+            <parameter name="feed_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Feeds to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="media" xsi:type="select" required="true" visible="true">
+                <label translate="true">Type</label>
+                <options>
+                    <option name="default" value="CameraHouse\Blog\Model\Blog\Blog" selected="true">
+                        <label translate="true">WordPress Blog Feeds</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_cache_key" xsi:type="text" required="true" visible="true">
+                <label translate="true">Custom Cache Key</label>
+                <value><![CDATA[HOME_PAGE_BLOG_FEEDS]]></value>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/blog/blog_feed.phtml" selected="true">
+                        <label translate="true">WordPress Blog Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

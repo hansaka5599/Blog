@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Netstarter. All rights reserved.
+ *
+ * @category    CameraHouse
+ * @package     CameraHouse_Blog
+ * @author      Netstarter Team <contact@netstarter.com>
+ * @copyright   Copyright (c) 2015 Netstarter Pty Ltd. (http://www.netstarter.com.au)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="CameraHouse_Blog::main_menu" title="Blog Feed" module="CameraHouse_Blog" sortOrder="10"
+             resource="CameraHouse_Blog::main_menu" parent="CameraHouse_Base::main_menu"/>
+        <add id="CameraHouse_Blog::configuration" title="Configuration" module="CameraHouse_Blog" sortOrder="1"
+             parent="CameraHouse_Blog::main_menu" action="adminhtml/system_config/edit/section/camerahouse_blog"
+             resource="CameraHouse_Blog::configuration"/>
+    </menu>
+</config>

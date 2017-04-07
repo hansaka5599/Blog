@@ -1,0 +1,64 @@
+<?php
+/**
+ * Netstarter Pty Ltd.
+ *
+ * @category    CameraHouse
+ * @package     CameraHouse_Blog
+ * @author      Netstarter Team <contact@netstarter.com>
+ * @copyright   Copyright (c) 2016 Netstarter Pty Ltd. (http://www.netstarter.com.au)
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for displaying blog feeds widget
+ *
+ * @var $block \CameraHouse\Blog\Block\Widget\Blog
+ */
+?>
+<?php
+$feeds = unserialize($block->getFeeds());
+if (is_array($feeds) && !empty($feeds)):
+
+$limit = $block->getFeedCount();
+$i = 1;
+?>
+<div class="blog-feed-wp">
+    <div class="blog-feed-in">
+        <div class="blog-feed heading"><h2><?php echo $block->getWidgetTitle();?></h2></div>
+        <ul>
+            <?php foreach ($feeds as $feed): ?>
+                <li class="feed-item">
+                    <div class="feed-item-inner">
+                        <div class="feed-image">
+                            <?php if($feed['blogImage']):?>
+                                <a href="<?php echo $feed['blogLink'] ?>">
+                                    <?php echo $feed['blogImage']; ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="feed-title">
+                            <a href="<?php echo $feed['blogLink'] ?>">
+                                <?php echo $feed['blogTitle'] ?>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <?php
+                $i++;
+                if ($i > $limit) {
+                    break;
+                }
+                ?>
+            <?php endforeach; ?>
+        </ul>
+        <div class="view-more">
+            <a href="<?php echo $block->getBlogUrl(); ?>" target="_blank" class="view-more-link">View More</a>
+        </div>
+    </div>
+</div>
+
+<?php endif;?>
